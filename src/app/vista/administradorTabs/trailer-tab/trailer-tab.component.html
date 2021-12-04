@@ -1,0 +1,24 @@
+<div>
+    <div class="container mt-3 hm"> 
+        <div class="row">
+            <div class="col-12 col-md-4 mb-1">
+                <form>
+                    <input class=" form-control" type="text" name="buscar-trailer" id="buscar-trailer"
+                        placeholder="Buscar trailer" value="" [(ngModel)]="filtro">
+                </form>
+            </div>
+            <div class="col-12 col-md-auto">
+                <button class=" bi bi-plus btn btn-success w-100" routerLink="/Registral_Trailer"> Agregar </button>
+            </div>
+        </div>
+    </div>
+    <div class=" container mt-3 d-flex flex-wrap" >
+        <div *ngFor="let item of trailer | filtroTrailer: filtro" class=" d-flex flex-wrap">
+            <app-card 
+           srcImg ="{{item.urlImagen}}"
+           titulo ={{item.titulo}}
+           (click) = ver(item);
+        ></app-card>
+        </div>
+    </div>
+</div>

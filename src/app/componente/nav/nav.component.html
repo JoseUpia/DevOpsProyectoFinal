@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand  mx-3" routerLink="/Principal">
+          Trailer
+      </a>
+
+      <div >
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+             <div>
+              <li class="nav-item" *ngIf="!logiado">
+                <a class="nav-link active" aria-current="page" (click)="login()"><i class="bi bi-door-closed"></i> Inicial sección</a>
+              </li>
+              <li class="nav-item " *ngIf="logiado">
+                <a class="nav-link active" aria-current="page" routerLink="/Administrador"> <i class="bi bi-person"></i>{{usuario}}</a>
+              </li>
+              <li class="nav-item " *ngIf="logiado">
+                <a class="nav-link active" aria-current="page" (click)="salir()"> <i class="bi bi-door-open" ></i> Salir</a>
+              </li>
+             </div>
+            </ul>
+          </div>
+      </div>
+  </div>
+</nav>

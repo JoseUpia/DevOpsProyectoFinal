@@ -1,0 +1,177 @@
+<h2 mat-dialog-title>Editar Trailer: {{data.titulo}}</h2>
+
+<div class="mt-3">
+    <mat-dialog-content>
+        <mat-stepper #stepper>
+            <mat-step [stepControl]="trailerFormGroup">
+                <form [formGroup]="trailerFormGroup">
+                    <ng-template matStepLabel>Informacion general</ng-template>
+                    <div class="my-2">
+                        <!-- input -->
+                        <div class="my-2">
+                            <label class="label" for="titulo-input"> Nombre </label>
+                            <div class="control">
+                                <input formControlName="titulo" type="text" class=" input" placeholder="Nombre"
+                                    id="titulo-input">
+                            </div>
+                        </div>
+
+                        <!-- input -->
+                        <div class="my-2">
+                            <label class="label" for="urlVideo-input">ID Video</label>
+                            <div class="control">
+                                <input formControlName='urlVideo' type="text" class=" input" placeholder="URL video"
+                                    id="urlVideo-input">
+                            </div>
+                        </div>
+
+                        <!-- input -->
+                        <div class="my-2">
+                            <label class="label" for="urlImagen-form">URL Portada</label>
+                            <div class="control">
+                                <input formControlName='urlImagen' type="text" class=" input" placeholder="URL video"
+                                    id="urlImagen-form">
+                            </div>
+                        </div>
+
+                        <!-- input -->
+                        <div class="my-2">
+                            <label class="label" for="ano-input"> Año </label>
+                            <div class="control">
+                                <input formControlName='ano' type="number" class=" input" placeholder="Año"
+                                    id="ano-input">
+                            </div>
+                        </div>
+                        <!-- input -->
+                        <div class="my-0">
+                            <label class="label" for="sinopsis-input"> Sinopsis </label>
+                            <div class="control">
+                                <textarea formControlName='sinopsis' class=" textarea" placeholder="Sinopsis"
+                                    id="sinopsis-input"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <button class="btn btn-primary" (click)="registral()"> Registral </button>
+                </div>
+            </mat-step>
+            <mat-step>
+
+                <!-- Vista Actores -->
+                <ng-template matStepLabel>Actores</ng-template>
+                <table class="table">
+                    <thead>
+                        <th>Actor</th>
+                        <th>Opciones</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form class="example-form">
+                                    <input type="text" #actorInputR class="input" placeholder="Agregar actor"
+                                        [formControl]="actorCtrl" [matAutocomplete]="auto">
+                                    <mat-autocomplete #auto="matAutocomplete">
+                                        <mat-option *ngFor="let actor of filteredActors | async"
+                                            (click)="addActorList(actor)">
+                                            {{actor.nombre}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </form>
+                            </td>
+                            <td>
+                                <button class="btn btn-success bi bi-person-plus"
+                                    (click)="openDialog('actor')"></button>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let elem of actorList">
+                            <td>{{elem.nombre}}</td>
+                            <td><button class="btn btn-danger bi bi-trash" (click)="removeActorList(elem)"></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+
+                    <template aling="end">
+                        <button class="btn btn-success mx-2" (click)="registral()">Actualizar inf. general</button>
+                        <button class="btn btn-primary mx-2" matStepperPrevious>Anterior</button>
+                        <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                    </template>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Directo</ng-template>
+                <table class="table">
+                    <thead>
+                        <th>Directo</th>
+                        <th>Opciones</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form class="example-form">
+                                    <input type="text" #directorInputR class="input" placeholder="Agregar director"
+                                        [formControl]="directorCtrl" [matAutocomplete]="autod">
+                                    <mat-autocomplete #autod="matAutocomplete">
+                                        <mat-option *ngFor="let director of filteredDirector | async"
+                                            (click)="addDirectorList(director)">
+                                            {{director.nombre}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </form>
+                            </td>
+                            <td>
+                                <button class="btn btn-success bi bi-person-plus"
+                                    (click)="openDialog('director')"></button>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let elem of directorList">
+                            <td>{{elem.nombre}}</td>
+                            <td><button class="btn btn-danger bi bi-trash" (click)="removeDirectorList(elem)"></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button class="btn btn-primary mx-2" matStepperPrevious>Anterior</button>
+                    <button class="btn btn-primary" matStepperNext>Siguiente</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Genero</ng-template>
+                <table class="table">
+                    <thead>
+                        <th>Genero</th>
+                        <th>Opciones</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form class="example-form">
+                                    <input type="text" #directorInputR class="input" placeholder="Agregar genero"
+                                        [formControl]="generoCtrl" [matAutocomplete]="autog">
+                                    <mat-autocomplete #autog="matAutocomplete">
+                                        <mat-option *ngFor="let genero of filteredGenero | async"
+                                            (click)="addGeneroList(genero)">
+                                            {{genero.nombre}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </form>
+                            </td>
+                            <td>
+                                <button class="btn btn-success bi bi-person-plus"
+                                    (click)="openDialog('genero')"></button>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let elem of generoList">
+                            <td>{{elem.nombre}}</td>
+                            <td><button class="btn btn-danger bi bi-trash" (click)="removeDirectorList(elem)"></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-step>
+        </mat-stepper>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-success" [matDialogClose]>Cerrar</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,9 @@
+<h2 mat-dialog-title> {{label}} {{titulo}}</h2>
+<mat-dialog-content>
+    <input type="text" class="input" placeholder="{{label}} {{titulo}}" name="inputAgregar" id="inputAgregar" [(ngModel)] = "agregar">
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button class="btn btn-danger mx-2" mat-dialog-close>Cancelar</button>
+    <button class="btn btn-success" [mat-dialog-close]="true" (click)="ingresar()"> {{label}}</button>
+  </mat-dialog-actions>

@@ -1,0 +1,36 @@
+
+<div class="my-2">
+    <ul class=" nav nav-tabs" id="tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="trailer-tab" data-bs-toggle="tab" data-bs-target="#trailer"
+                type="button" role="tab" aria-controls="trailer" aria-selected="true">Trailer</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="actor-tab" data-bs-toggle="tab" data-bs-target="#actor" type="button"
+                role="tab" aria-controls="actor" aria-selected="false">actor</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="genero-tab" data-bs-toggle="tab" data-bs-target="#genero" type="button"
+                role="tab" aria-controls="genero" aria-selected="false">Genero</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="directo-tab" data-bs-toggle="tab" data-bs-target="#directo" type="button"
+                role="tab" aria-controls="directo" aria-selected="false">Directo</button>
+        </li>
+    </ul>
+    <div class=" tab-content" id="tabContenedor">
+        <div class="tab-pane fade show active" id="trailer" role="tabpanel" aria-labelledby="trailer-tab">
+            <app-trailer-tab></app-trailer-tab>
+            </div>
+        <div class="tab-pane fade" id="actor" role="tabpanel" aria-labelledby="actor-tab">
+            <app-actor-tab></app-actor-tab>
+            </div>
+        <div class="tab-pane fade" id="genero" role="tabpanel" aria-labelledby="genero-tab">
+            <app-genero-tab></app-genero-tab>
+            </div>
+        <div class="tab-pane fade" id="directo" role="tabpanel" aria-labelledby="directo-tab">
+            <app-director-tab></app-director-tab>
+            </div>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+
+<h1 mat-dialog-title>Login</h1>
+<mat-dialog-content>
+    <form [formGroup]="loginForm" >
+        <input class="form-control my-2" type="text" placeholder="Correo" formControlName="correo">
+        <input class=" form-control mb-4" type="password" placeholder="Contraseña" formControlName="contrasena">
+    </form>
+    <h2 *ngIf="login">No autorizado</h2>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button class="btn btn-danger mx-2" mat-dialog-close>Cancelar</button>
+    <button id="btnInicio" class="btn btn-success" (click)="iniciar()"> 
+        <span #span class="" role="status" aria-hidden="true"></span>
+        <span class="sr-only">Inicio</span>
+    </button>
+</mat-dialog-actions>
+ 
