@@ -24,7 +24,7 @@
 
 </mat-dialog-content>
 <mat-dialog-actions class="d-flex justify-content-between">
-    <div>
+    <div *ngIf="false">
     <button class="btn btn-danger bi bi-trash" *ngIf="login" mat-dialog-close (click)="removerTrailer(data)">Editar</button>     
     <button class="btn btn-warning bi bi-pencil-square mx-2" *ngIf="login" mat-dialog-close (click)="editarTrailer(data)">Editar</button>
     </div>

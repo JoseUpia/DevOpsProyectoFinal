@@ -27,6 +27,7 @@ export class NavComponent implements OnInit {
       this.usuario = this.cookie.get('usuario')
     });
   }
+  
   getUsuario() {
     let u = this.cookie.get('usuario')
     if(u){

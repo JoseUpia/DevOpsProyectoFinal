@@ -25,8 +25,9 @@ export class PrincipalComponent implements OnInit {
   ngOnInit(): void {
     this.getTrailer();
   }
+  
   getTrailer() {
-    this.openDialog.openDialog(CargandoComponent, "Cargando...");
+    
     this.api.getTrailer().subscribe( 
       (res: Trailer[]) => {
         this.notidicar.cambiosEvento.emit({mesage: "Terminado", terminado: true})
